@@ -2,13 +2,13 @@ let monitorear = true;
 
 //CONFIGURACIÓN
 
-let amp_min = 0.09;
-let amp_max = 0.2;
+let amp_min = 0.2;
+let amp_max = 0.3;
 let imprimir = false;
-let AMORTIGUACION = 0.65;
+let AMORTIGUACION = 0.95;
 
-let frec_min = 48;
-let frec_max = 400;
+let frec_min = 0.01;
+let frec_max = 0.9;
 
 //ENTRADA DE AUDIO
 let mic;
@@ -139,7 +139,6 @@ function draw() {
   gestorAmp.actualizar(mic.getLevel());
   amp = gestorAmp.filtrada;
   //console.log(label);
-  console.log(amp);
 
   frec = gestorPitch.filtrada;
 
@@ -150,7 +149,7 @@ function draw() {
   antesHabiaSonido = haySonido;
 
   //----Tamaño redes y rellenos----
-  tam = map(amp, amp_min, amp_max, 930, 1050);
+  tam = map(amp, amp_min, amp_max, 1000, 1100);
   //angle = map(frec, frec_min, frec_max, 0, 360);
 
   translate(width / 2, height / 2);
